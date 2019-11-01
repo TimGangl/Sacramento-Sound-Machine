@@ -1,7 +1,7 @@
 button{
     margin: 10px
 }
-.b1{
+/* .b1{
     background: blue;
 }
 .b2{
@@ -9,4 +9,9 @@ button{
 }
 .b3{
     background: green;
+} */
+
+.picked{
+    border-style: groove;
+    background : pink;
 }
