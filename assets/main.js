@@ -2,11 +2,12 @@ let bpm = 110; //interval for main setinterval
 let tick = 60000 / bpm;
 
 instruments=[
-    "",
-    "",
-    "",
-    "",
-    "",
+    new Audio("assets/sounds/drums/1/clap.wav"),
+    new Audio("assets/sounds/drums/1/kick.wav"),
+    new Audio("assets/sounds/drums/1/snare.wav"),
+    new Audio("assets/sounds/drums/1/hihat.wav"),
+    new Audio("assets/sounds/drums/1/openhat.wav"),
+    new Audio("assets/sounds/drums/1/sfx.wav"),
 ];
 
 sequencer = [];
@@ -33,7 +34,7 @@ for (let ii = 0; ii < instruments.length; ii++) {
         button.className = "button" + i;
         button.classList.add(bclass);
         button.classList.add("isButton")
-        button.innerHTML = i;
+        button.innerHTML = i+1;
         document.querySelector(`.row${ii}`).append(button);
 
         button.setAttribute("row", ii);
@@ -63,7 +64,7 @@ setInterval(() => {
         }, tick);
 
         if(element.classList.contains("active")){
-            instruments[element.getAttribute("row")];
+            instruments[element.getAttribute("row")].play();
         };
 
     });
