@@ -1,51 +1,100 @@
-let tick = 30; //interval for main setinterval
+let bpm = 110; //interval for main setinterval
+let tick = 60000 / bpm;
 
-for(let ii = 0; ii < 3; ii++){
+instruments=[
+    new Audio("assets/sounds/drums/1/clap.wav"),
+    new Audio("assets/sounds/drums/1/kick.wav"),
+    new Audio("assets/sounds/drums/1/snare.wav"),
+    new Audio("assets/sounds/drums/1/hihat.wav"),
+    new Audio("assets/sounds/drums/1/openhat.wav"),
+    new Audio("assets/sounds/drums/1/sfx.wav"),
+];
+
+sequencer = [];
+console.log(sequencer);
+
+for (let ii = 0; ii < instruments.length; ii++) {
     let bclass; //used to show each row
 
+    sequencer.push([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+    
     let row = document.createElement("div");
-    row.classList.add("row"+ii);
+    row.classList.add("row" + ii);
 
-    document.querySelector(".grid").append(row);
-    if(ii == 0){    //b classes are used in style.css
-        bclass= "b0"
+    document.querySelector("#sequencer").append(row);
+    if (ii % 2 == 0) {    //b classes are used in style.css
+        bclass = "b0"
     }
-    if(ii==1){
-        bclass= "b1"
+    else {
+        bclass = "b1"
     }
-    if(ii==2){
-        bclass= "b2"
-    }
-    for(let i = 0; i < 17; i++){
+    for (let i = 0; i < 16; i++) {
+
         let button = document.createElement("button");
         button.className = "button" + i;
         button.classList.add(bclass);
-        button.innerHTML = i;
+        button.classList.add("isButton")
+        button.innerHTML = i+1;
         document.querySelector(`.row${ii}`).append(button);
+
+        button.setAttribute("row", ii);
+        button.setAttribute("column", i);
+
     }
 }
+
+console.log(sequencer);
 
 tickCount = 0;
 
 setInterval(() => {
-    if(tickCount > 16){
+    if (tickCount > 15) {
         tickCount = 0;
     }
-    console.log("getting: " + ".button" + tickCount)
+    //console.log("getting: " + ".button" + tickCount)
     col = document.getElementsByClassName("button" + tickCount);
-    colArray= Array.from(col);
+    colArray = Array.from(col);
 
 
-    console.log(col, colArray);
+    //console.log(col, colArray);
     colArray.forEach(element => {
-        console.log(element);
-
         element.classList.add("picked");
         setTimeout(() => {
             element.classList.remove("picked")
         }, tick);
 
+        if(element.classList.contains("active")){
+            instruments[element.getAttribute("row")].play();
+        };
+
     });
 
     tickCount += 1;
 }, tick);
+
+
+Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
+    elm.addEventListener("click", function () {
+        
+        console.log(elm.getAttribute("row"), elm.getAttribute("column"))
+        if(elm.classList.contains("active")){
+            elm.classList.remove("active");
+
+            let jj = elm.getAttribute("row");
+            let j = elm.getAttribute("column");
+            console.log(jj, j)
+            console.log(sequencer[jj][j] = 0)
+        }
+        else{
+            elm.classList.add("active");
+
+            let jj = elm.getAttribute("row");
+            let j = elm.getAttribute("column");
+
+            console.log(sequencer[jj][j] = 1)
+
+        }
+
+    })
+});
+

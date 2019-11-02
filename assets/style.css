@@ -1,17 +1,30 @@
+#sequencer{
+    background-color: rgba(255, 255, 255, 0.40);
+}
+
 button{
-    margin: 10px
+    margin: 10px;
+    border:white solid;
+    border-radius: 25px;
+    width: 3em;
+    height: 3em;
+    text-align: center;
 }
-/* .b1{
-    background: blue;
+button:focus{
+    outline: none;
 }
-.b2{
-    background: orange;
+.active{
+    border:solid red;
 }
-.b3{
-    background: green;
-} */
+.b0{
+    background: slateblue;
+}
+.b1{
+    background: lightsteelblue;
+}
+
 
 .picked{
-    border-style: groove;
-    background : pink;
+    border-style: dotted;
+    background : white;
 }
