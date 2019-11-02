@@ -10,6 +10,7 @@ instruments=[
     new Audio("assets/sounds/drums/1/sfx.wav"),
 ];
 
+
 sequencer = [];
 console.log(sequencer);
 
@@ -48,6 +49,7 @@ console.log(sequencer);
 tickCount = 0;
 
 setInterval(() => {
+    
     if (tickCount > 15) {
         tickCount = 0;
     }
@@ -63,7 +65,7 @@ setInterval(() => {
             element.classList.remove("picked")
         }, tick);
 
-        if(element.classList.contains("active")){
+        if(element.classList.contains("isActive")){
             instruments[element.getAttribute("row")].play();
         };
 
@@ -77,16 +79,18 @@ Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
     elm.addEventListener("click", function () {
         
         console.log(elm.getAttribute("row"), elm.getAttribute("column"))
-        if(elm.classList.contains("active")){
-            elm.classList.remove("active");
+
+        if(elm.classList.contains("isActive")){
+            elm.classList.remove("isActive");
 
             let jj = elm.getAttribute("row");
             let j = elm.getAttribute("column");
             console.log(jj, j)
             console.log(sequencer[jj][j] = 0)
+            
         }
         else{
-            elm.classList.add("active");
+            elm.classList.add("isActive");
 
             let jj = elm.getAttribute("row");
             let j = elm.getAttribute("column");
@@ -97,4 +101,10 @@ Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
 
     })
 });
+document.querySelector("#tempo").oninput = function(){
+    console.log(this.value)
+    tick = 60000/this.value;
+}
+
+
 

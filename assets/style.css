@@ -13,7 +13,7 @@ button{
 button:focus{
     outline: none;
 }
-.active{
+.active1{
     border:solid red;
 }
 .b0{
