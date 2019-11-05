@@ -11,7 +11,11 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
+
 <body style="background: url(assets/images/sound-wave3.jpg)">
+  <!-- by abhi -->
+  <div class="validationstatus">Form submited</div> 
+
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-sm-12">
@@ -53,18 +57,18 @@
   <div class="container-fluid pl-30">
     <div class="row">
       <div class="col-sm-6">
-        <form style="color: antiquewhite;">
+        <form method="post" style="color: antiquewhite;">
           <br style="color: antiquewhite;">
           Name<br>
-          <input class="name" type="text" name="name" value="" placeholder="Deadmau5" required="required">
+          <input class="name" type="text" value="" placeholder="Deadmau5" name="fname" required>
           <br>
           Email<br>
-          <input class="email" type="email" name="name" value="" placeholder="example@gmail.com" required="required">
+          <input class="email" type="email" value="" placeholder="example@gmail.com" name="fname" required>
           <br>
           Message<br>
-          <textarea class="message" name="message" rows="8" cols="60" placeholder="Type message here"
-            required="required"></textarea><br>
-          <button type="button" class="add btn btn-lg btn-submit"
+          <textarea name="fname" class="message" rows="8" cols="60" placeholder="Type message here"
+            required></textarea><br>
+          <button type="submit" value="Submit" class="add btn btn-lg btn-submit"
             style="background-color: #343a40; color: antiquewhite">Submit</button>
         </form>
       </div>
@@ -126,4 +130,18 @@
     crossorigin="anonymous"></script>
   <script src="./assets/contact.js"></script>
 
+<style>
+  .validationstatus{
+    position: fixed;
+    margin-top: 5%;
+    text-align: center;   
+    width: 100%;
+    height: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding-top: 5px;
+    background-color: lime;
+    
+  }
+</style>
 </html>

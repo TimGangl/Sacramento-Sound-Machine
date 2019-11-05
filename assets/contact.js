@@ -14,24 +14,49 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 $(".add").on("click", function (event) {
-  event.preventDefault();
-
+  //event.preventDefault();
   var name = $(".name").val().trim();
   var email = $(".email").val().trim();
   var message = $(".message").val().trim();
 
-  var contactInfo = {
-    userName: name,
-    userEmail: email,
-    userMessage: message
-  };
-  database.ref().push(contactInfo);
+  if(name.length > 0 && email.length > 0 && message.length > 0 && validateEmail(email)){
+    console.log("passes validation");
 
-  alert("Contact info successfully sent");
+    var contactInfo = {
+      userName: name,
+      userEmail: email,
+      userMessage: message
+    };
+    database.ref().push(contactInfo);
 
-  $(".name").val("");
-  $(".email").val("");
-  $(".message").val("");
+    $(".name").val("");
+    $(".email").val("");
+    $(".message").val("");
+
+    document.querySelector(".validationstatus").hidden = false;
+    setTimeout(() => {
+      document.querySelector(".validationstatus").hidden = true;
+
+    }, 5000);
+  }
+  else{
+    console.log("failed validation");
+  }
+
+
+  //alert("Contact info successfully sent");
+
+
 
 
 });
+function validateEmail(email) 
+{
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
+window.addEventListener('load', init, false);
+function init(){
+  document.querySelector(".validationstatus").hidden = true;
+}

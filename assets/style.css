@@ -12,7 +12,7 @@ button{
 button:focus{
     outline: none;
 }
-.active1{
+.isActive{
     border:solid red;
 }
 .b0{
