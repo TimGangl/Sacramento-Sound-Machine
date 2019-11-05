@@ -9,9 +9,11 @@
   <title>Sacramento Sound Machine</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/play.css">
+  <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 </head>
 
-<body style="background: url(assets/images/sound-wave.jpg)">
+<body style="background: url(assets/images/sound-wave3.jpg)">
   <div class="container-fluid p-0">
     <div class="row">
       <div class="col-sm-12">
@@ -28,7 +30,7 @@
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="drum-kit.html">Play</a>
+                <a class="nav-link" href="live.html">Play</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="sequencer.html">Loop</a>
@@ -55,7 +57,38 @@
     <!--loop player-->
     <div class="col-sm-4"></div>
     <!--drum pad-->
-    <div class="col-sm-8"></div>
+    <div class="col-sm-8">
+      <div class="drumPads">
+        <div data-key="68" class="button button1">
+          <h2>D</h2>
+          <p>KICK</p>
+        </div>
+        <div data-key="70" class="button button2">
+          <h2>F</h2>
+          <p>CLAP</p>
+        </div>
+        <div data-key="71" class="button button3">
+          <h2>G</h2>
+          <p>SNARE</p>
+        </div>
+        <div data-key="72" class="button button4">
+          <h2>H</h2>
+          <p>HI-HAT</p>
+        </div>
+        <div data-key="74" class="button button5">
+          <h2>J</h2>
+          <p>O-HAT</p>
+        </div>
+        <div data-key="75" class="button button6">
+          <h2>K</h2>
+          <p>CYMBAL</p>
+        </div>
+        <div data-key="76" class="button button7">
+          <h2>L</h2>
+          <p>SFX</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -67,6 +100,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="./assets/play.js"></script>
 </body>
 
 </html>
