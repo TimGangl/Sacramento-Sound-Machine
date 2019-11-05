@@ -14,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 $(".add").on("click", function (event) {
-  event.preventDefault();
+  //event.preventDefault();
 
   var name = $(".name").val().trim();
   var email = $(".email").val().trim();
@@ -27,11 +27,11 @@ $(".add").on("click", function (event) {
   };
   database.ref().push(contactInfo);
 
-  alert("Contact info successfully sent");
+  //alert("Contact info successfully sent");
 
-  $(".name").val("");
-  $(".email").val("");
-  $(".message").val("");
+  $(".name").val();
+  $(".email").val();
+  $(".message").val();
 
 
 });
