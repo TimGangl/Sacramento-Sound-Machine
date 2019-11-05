@@ -1,7 +1,6 @@
-let bpm = 110; //interval for main setinterval
-let tick = 60000 / bpm;
+let interval;
 
-instruments=[
+instruments = [
     new Audio("assets/sounds/drums/1/clap.wav"),
     new Audio("assets/sounds/drums/1/kick.wav"),
     new Audio("assets/sounds/drums/1/snare.wav"),
@@ -17,8 +16,8 @@ console.log(sequencer);
 for (let ii = 0; ii < instruments.length; ii++) {
     let bclass; //used to show each row
 
-    sequencer.push([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
-    
+    sequencer.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
     let row = document.createElement("div");
     row.classList.add("row" + ii);
 
@@ -35,7 +34,7 @@ for (let ii = 0; ii < instruments.length; ii++) {
         button.className = "button" + i;
         button.classList.add(bclass);
         button.classList.add("isButton")
-        button.innerHTML = i+1;
+        button.innerHTML = i + 1;
         document.querySelector(`.row${ii}`).append(button);
 
         button.setAttribute("row", ii);
@@ -48,63 +47,75 @@ console.log(sequencer);
 
 tickCount = 0;
 
-setInterval(() => {
-    
-    if (tickCount > 15) {
-        tickCount = 0;
-    }
-    //console.log("getting: " + ".button" + tickCount)
-    col = document.getElementsByClassName("button" + tickCount);
-    colArray = Array.from(col);
+interval = makeInterval(120);
+document.querySelector("#showtempo").textContent = 120;
 
-
-    //console.log(col, colArray);
-    colArray.forEach(element => {
-        element.classList.add("picked");
-        setTimeout(() => {
-            element.classList.remove("picked")
-        }, tick);
-
-        if(element.classList.contains("isActive")){
-            instruments[element.getAttribute("row")].play();
-        };
-
-    });
-
-    tickCount += 1;
-}, tick);
 
 
 Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
     elm.addEventListener("click", function () {
-        
+
         console.log(elm.getAttribute("row"), elm.getAttribute("column"))
 
-        if(elm.classList.contains("isActive")){
+        let jj = elm.getAttribute("row");
+        let j = elm.getAttribute("column");
+
+        if (elm.classList.contains("isActive")) {
             elm.classList.remove("isActive");
 
-            let jj = elm.getAttribute("row");
-            let j = elm.getAttribute("column");
             console.log(jj, j)
             console.log(sequencer[jj][j] = 0)
-            
         }
-        else{
+        else {
             elm.classList.add("isActive");
-
-            let jj = elm.getAttribute("row");
-            let j = elm.getAttribute("column");
-
             console.log(sequencer[jj][j] = 1)
-
+            instruments[jj].play();
         }
 
     })
 });
-document.querySelector("#tempo").oninput = function(){
+
+document.querySelector("#tempo").oninput = function () {
     console.log(this.value)
-    tick = 60000/this.value;
+    clearInterval(interval)
+    interval = makeInterval(this.value)
+    document.querySelector("#showtempo").textContent = this.value;
 }
+document.querySelector("#resetgrid").addEventListener("click", function () {
+    Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
+        elm.classList.remove("isActive")
+
+    })
+});
 
 
 
+function makeInterval(bpm) {
+    timer = 60000 / bpm
+    intervalid = setInterval(() => {
+
+        if (tickCount > 15) {
+            tickCount = 0;
+        }
+        //console.log("getting: " + ".button" + tickCount)
+        col = document.getElementsByClassName("button" + tickCount);
+        colArray = Array.from(col);
+
+
+        //console.log(col, colArray);
+        colArray.forEach(element => {
+            element.classList.add("picked");
+            setTimeout(() => {
+                element.classList.remove("picked")
+            }, timer);
+
+            if (element.classList.contains("isActive")) {
+                instruments[element.getAttribute("row")].play();
+            };
+
+        });
+
+        tickCount += 1;
+    }, timer);
+    return intervalid;
+}
