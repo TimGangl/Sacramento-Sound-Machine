@@ -110,8 +110,6 @@ function makeInterval(bpm) {
             }, timer);
 
             if (element.classList.contains("isActive")) {
-                instruments[element.getAttribute("row")].currentTime = 0;
-
                 instruments[element.getAttribute("row")].play();
             };
 
