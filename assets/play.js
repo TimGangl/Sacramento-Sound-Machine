@@ -104,7 +104,12 @@ document.querySelector(".volsfx").addEventListener("input", function () {
 
 
 document.addEventListener('keydown', function (e) {
+  if(isFirstClick){
+    initAudiocontext();
+    isFirstClick = false;
+  }
   if (e.keyCode === 68) {
+    kick.currentTime=0;
     kick.play();
   }
   if (e.keyCode === 70) {
