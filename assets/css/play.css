@@ -10,7 +10,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 14px;
-  width: 100px;
+  width: fit-content;
   opacity: 72%;
   font-family: 'Sedgwick Ave Display', cursive;
   position: relative;
