@@ -84,7 +84,6 @@ document.querySelector("#tempo").oninput = function () {
 document.querySelector("#resetgrid").addEventListener("click", function () {
     Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
         elm.classList.remove("isActive")
-
     })
 });
 
