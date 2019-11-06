@@ -16,6 +16,26 @@
   
 }
 
+.buttons{
+  width: 200px;
+  background-color: rgb(199, 88, 93); 
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 14px;
+  opacity: 72%;
+  font-family: 'Sedgwick Ave Display', cursive;
+  border: 3px solid white;
+  color: black;
+  
+}
+
 h1{
   font-family: 'Sedgwick Ave Display', cursive;
   font-size: 55px;

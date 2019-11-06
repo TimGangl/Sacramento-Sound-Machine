@@ -1,27 +1,32 @@
-var kick    
-var clap    
-var snare   
-var hiHat   
-var openHat 
-var cymbal  
-var sfx     
+var kick
+var clap
+var snare
+var hiHat
+var openHat
+var cymbal
+var sfx
 
 loadKit(1);
 function loadKit(drumkit) {
-
-  if ( drumkit > 3 || drumkit < 1) {
+  console.log(drumkit);
+  if (drumkit > 3 || drumkit < 1) {
     console.log("loadKit function given invalid parameters")
   }
   else {
-    kick    = new Audio(`./assets/sounds/drums/${drumkit}/kick.wav`);
-    clap    = new Audio(`./assets/sounds/drums/${drumkit}/clap.wav`);
-    snare   = new Audio(`./assets/sounds/drums/${drumkit}/snare.wav`);
-    hiHat   = new Audio(`./assets/sounds/drums/${drumkit}/hihat.wav`);
+    kick = new Audio(`./assets/sounds/drums/${drumkit}/kick.wav`);
+    clap = new Audio(`./assets/sounds/drums/${drumkit}/clap.wav`);
+    snare = new Audio(`./assets/sounds/drums/${drumkit}/snare.wav`);
+    hiHat = new Audio(`./assets/sounds/drums/${drumkit}/hihat.wav`);
     openHat = new Audio(`./assets/sounds/drums/${drumkit}/openhat.wav`);
-    cymbal  = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
-    sfx     = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
+    cymbal = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
+    sfx = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
   }
 }
+
+$(".button8").on("click", function () { loadKit(1) });
+$(".button9").on("click", function () { loadKit(2) });
+$(".button10").on("click", function () { loadKit(3) });
+
 
 document.addEventListener('keydown', function (e) {
   if (e.keyCode === 68) {
