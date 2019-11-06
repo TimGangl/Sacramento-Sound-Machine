@@ -2,6 +2,10 @@ var loop1 = new Audio("./assets/sounds/loops/a-minor-cool-hip-hop-harp-loop-126-
 var loop2 = new Audio("./assets/sounds/loops/bass_GJen-EHu.mp3");
 var loop3 = new Audio("./assets/sounds/loops/d-minor-classic-hip-hop-piano-loop-185-bpm_z1ydWAN_.mp3");
 var loop4 = new Audio("./assets/sounds/loops/rock-guitar_GkHInVr_.mp3");
+var loop5 = new Audio("./assets/sounds/loops/ambient_GyEGvNBO.mp3");
+var loop6 = new Audio("./assets/sounds/loops/rock-guitar_GyMxpNr_.mp3");
+var loop7 = new Audio("./assets/sounds/loops/g-minor-screeching-violin-pattern-108-bpm_zkhnORNu.mp3");
+var loop8 = new Audio("./assets/sounds/loops/e-minor-ethnic-hip-hop-string-pattern-120-bpm_MJOBE0N_.mp3");
 var kick
 var clap
 var snare
@@ -88,9 +92,6 @@ $(".button7").on("click", function () {
 });
 
 $(".dropdown-item-1").on("click", function () {
-  // loop2.pause() = true;
-  // loop3.pause() = true;
-  // loop4.pause() = true;
   loop1.currentTime = 0;
   loop1.loop = true;
   loop1.play();
@@ -119,4 +120,23 @@ $(".dropdown-item-4").on("click", function () {
   loop4.loop = true;
   loop4.play();
 });
-
+$(".dropdown-item-5").on("click", function () {
+  loop5.currentTime = 0;
+  loop5.loop = true;
+  loop5.play();
+});
+$(".dropdown-item-6").on("click", function () {
+  loop6.currentTime = 0;
+  loop6.loop = true;
+  loop6.play();
+});
+$(".dropdown-item-7").on("click", function () {
+  loop7.currentTime = 0;
+  loop7.loop = true;
+  loop7.play();
+});
+$(".dropdown-item-8").on("click", function () {
+  loop8.currentTime = 0;
+  loop8.loop = true;
+  loop8.play();
+});
