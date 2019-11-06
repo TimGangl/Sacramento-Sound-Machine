@@ -55,40 +55,56 @@
   <!--drum container-->
   <div class="row">
     <!--loop player-->
-    <div class="col-sm-4"></div>
-    <!--drum pad-->
-    <div class="col-sm-8">
-      <div class="drumPads">
-        <div data-key="68" class="button button1">
-          <h2>D</h2>
-          <p>KICK</p>
-        </div>
-        <div data-key="70" class="button button2">
-          <h2>F</h2>
-          <p>CLAP</p>
-        </div>
-        <div data-key="71" class="button button3">
-          <h2>G</h2>
-          <p>SNARE</p>
-        </div>
-        <div data-key="72" class="button button4">
-          <h2>H</h2>
-          <p>HI-HAT</p>
-        </div>
-        <div data-key="74" class="button button5">
-          <h2>J</h2>
-          <p>O-HAT</p>
-        </div>
-        <div data-key="75" class="button button6">
-          <h2>K</h2>
-          <p>CYMBAL</p>
-        </div>
-        <div data-key="76" class="button button7">
-          <h2>L</h2>
-          <p>SFX</p>
+    <div class="col-sm-4 text-center">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Select Your Music!
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-item-1">Loop #1</div>
+          <div class="dropdown-item-2">Loop #2</div>
+          <div class="dropdown-item-3">Loop #3</div>
+          <div class="dropdown-item-4">Loop #4</div>
         </div>
       </div>
+
     </div>
+
+  </div>
+  <!--drum pad-->
+  <div class="col-sm-8">
+    <div class="drumPads">
+      <div data-key="68" class="button button1">
+        <h2>D</h2>
+        <p>KICK</p>
+      </div>
+      <div data-key="70" class="button button2">
+        <h2>F</h2>
+        <p>CLAP</p>
+      </div>
+      <div data-key="71" class="button button3">
+        <h2>G</h2>
+        <p>SNARE</p>
+      </div>
+      <div data-key="72" class="button button4">
+        <h2>H</h2>
+        <p>HI-HAT</p>
+      </div>
+      <div data-key="74" class="button button5">
+        <h2>J</h2>
+        <p>O-HAT</p>
+      </div>
+      <div data-key="75" class="button button6">
+        <h2>K</h2>
+        <p>CYMBAL</p>
+      </div>
+      <div data-key="76" class="button button7">
+        <h2>L</h2>
+        <p>SFX</p>
+      </div>
+    </div>
+  </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

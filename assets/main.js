@@ -120,12 +120,3 @@ function makeInterval(bpm) {
     }, timer);
     return intervalid;
 }
-
-var queryURL = "https://api.kanye.rest/?format=text";
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
-    $(".kanye-rest").text(response);
-    console.log(response)
-});

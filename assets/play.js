@@ -5,6 +5,10 @@ var hiHat = new Audio("./assets/sounds/drums/1/hihat.wav");
 var openHat = new Audio("./assets/sounds/drums/1/openhat.wav");
 var cymbal = new Audio("./assets/sounds/drums/1/cymbal.wav");
 var sfx = new Audio("./assets/sounds/drums/1/sfx.wav");
+var loop1 = new Audio("./assets/sounds/loops/a-minor-cool-hip-hop-harp-loop-126-bpm_zJ_WsaNd.mp3");
+var loop2 = new Audio("./assets/sounds/loops/bass_GJen-EHu.mp3");
+var loop3 = new Audio("./assets/sounds/loops/d-minor-classic-hip-hop-piano-loop-185-bpm_z1ydWAN_.mp3");
+var loop4 = new Audio("./assets/sounds/loops/rock-guitar_GkHInVr_.mp3");
 
 document.addEventListener('keydown', function (e) {
   if (e.keyCode === 68) {
@@ -65,3 +69,20 @@ $(".button7").on("click", function () {
   sfx.currentTime = 0;
   sfx.play();
 });
+
+$(".dropdown-item-1").on("click", function () {
+  loop1.currentTime = 0;
+  loop1.play();
+});
+$(".dropdown-item-2").on("click", function () {
+  loop2.currentTime = 0;
+  loop2.play();
+});
+$(".dropdown-item-3").on("click", function () {
+  loop3.currentTime = 0;
+  loop3.play();
+});
+$(".dropdown-item-4").on("click", function () {
+  loop4.currentTime = 0;
+  loop4.play();
+})
