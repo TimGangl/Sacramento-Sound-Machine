@@ -1,10 +1,27 @@
-var kick = new Audio("./assets/sounds/drums/1/kick.wav");
-var clap = new Audio("./assets/sounds/drums/1/clap.wav");
-var snare = new Audio("./assets/sounds/drums/1/snare.wav");
-var hiHat = new Audio("./assets/sounds/drums/1/hihat.wav");
-var openHat = new Audio("./assets/sounds/drums/1/openhat.wav");
-var cymbal = new Audio("./assets/sounds/drums/1/cymbal.wav");
-var sfx = new Audio("./assets/sounds/drums/1/sfx.wav");
+var kick    
+var clap    
+var snare   
+var hiHat   
+var openHat 
+var cymbal  
+var sfx     
+
+loadKit(1);
+function loadKit(drumkit) {
+
+  if ( drumkit > 3 || drumkit < 1) {
+    console.log("loadKit function given invalid parameters")
+  }
+  else {
+    kick    = new Audio(`./assets/sounds/drums/${drumkit}/kick.wav`);
+    clap    = new Audio(`./assets/sounds/drums/${drumkit}/clap.wav`);
+    snare   = new Audio(`./assets/sounds/drums/${drumkit}/snare.wav`);
+    hiHat   = new Audio(`./assets/sounds/drums/${drumkit}/hihat.wav`);
+    openHat = new Audio(`./assets/sounds/drums/${drumkit}/openhat.wav`);
+    cymbal  = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
+    sfx     = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
+  }
+}
 
 document.addEventListener('keydown', function (e) {
   if (e.keyCode === 68) {
