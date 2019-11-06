@@ -1,7 +1,7 @@
 var kick = new Audio("./assets/sounds/drums/1/kick.wav");
 var clap = new Audio("./assets/sounds/drums/1/clap.wav");
 var snare = new Audio("./assets/sounds/drums/1/snare.wav");
-var hiHat = new Audio("./assets/sounds/drums/1/hiHat.wav");
+var hiHat = new Audio("./assets/sounds/drums/1/hihat.wav");
 var openHat = new Audio("./assets/sounds/drums/1/openhat.wav");
 var cymbal = new Audio("./assets/sounds/drums/1/cymbal.wav");
 var sfx = new Audio("./assets/sounds/drums/1/sfx.wav");
