@@ -1,31 +1,110 @@
-var kick    
-var clap    
-var snare   
-var hiHat   
-var openHat 
-var cymbal  
-var sfx     
+var kick
+var clap
+var snare
+var hiHat
+var openHat
+var cymbal
+var sfx
+
+let isFirstClick = true;
+
+let kickGain;
 
 loadKit(1);
 function loadKit(drumkit) {
-
-  if ( drumkit > 3 || drumkit < 1) {
+  //loads the drumkit to be used 
+  if (drumkit > 3 || drumkit < 1) {
     console.log("loadKit function given invalid parameters")
   }
   else {
-    kick    = new Audio(`./assets/sounds/drums/${drumkit}/kick.wav`);
-    clap    = new Audio(`./assets/sounds/drums/${drumkit}/clap.wav`);
-    snare   = new Audio(`./assets/sounds/drums/${drumkit}/snare.wav`);
-    hiHat   = new Audio(`./assets/sounds/drums/${drumkit}/hihat.wav`);
+    kick = new Audio(`./assets/sounds/drums/${drumkit}/kick.wav`);
+    clap = new Audio(`./assets/sounds/drums/${drumkit}/clap.wav`);
+    snare = new Audio(`./assets/sounds/drums/${drumkit}/snare.wav`);
+    hiHat = new Audio(`./assets/sounds/drums/${drumkit}/hihat.wav`);
     openHat = new Audio(`./assets/sounds/drums/${drumkit}/openhat.wav`);
-    cymbal  = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
-    sfx     = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
+    cymbal = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
+    sfx = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
+  }
+  if (!isFirstClick) {
+    initAudiocontext();
   }
 }
 
+
+document.addEventListener("click", function () {
+  if (isFirstClick) {
+    isFirstClick = false;
+    console.log("first click");
+    initAudiocontext();
+  }
+})
+
+function initAudiocontext() {
+  audioContext = new AudioContext();
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+  const wKick = audioContext.createMediaElementSource(kick);
+  kickGain = audioContext.createGain();
+  wKick.connect(kickGain).connect(audioContext.destination);
+
+  const wClap = audioContext.createMediaElementSource(clap);
+  clapGain = audioContext.createGain();
+  wClap.connect(clapGain).connect(audioContext.destination);
+
+  const wSnare = audioContext.createMediaElementSource(snare);
+  snareGain = audioContext.createGain();
+  wSnare.connect(snareGain).connect(audioContext.destination);
+
+  const wHihat = audioContext.createMediaElementSource(hiHat);
+  hiHatGain = audioContext.createGain();
+  wHihat.connect(hiHatGain).connect(audioContext.destination);
+
+  const wOpenhat = audioContext.createMediaElementSource(openHat);
+  openhatGain = audioContext.createGain();
+  wOpenhat.connect(openhatGain).connect(audioContext.destination);
+
+  const wCymbal = audioContext.createMediaElementSource(cymbal);
+  cymbalGain = audioContext.createGain();
+  wCymbal.connect(cymbalGain).connect(audioContext.destination);
+
+  const wSfx = audioContext.createMediaElementSource(sfx);
+  sfxGain = audioContext.createGain();
+  wSfx.connect(sfxGain).connect(audioContext.destination);
+}
+
+document.querySelector(".volkick").addEventListener("input", function () {
+  console.log(this.value)
+  kickGain.gain.value = this.value
+})
+document.querySelector(".volclap").addEventListener("input", function () {
+  console.log(this.value)
+  clapGain.gain.value = this.value
+})
+document.querySelector(".volsnare").addEventListener("input", function () {
+  console.log(this.value)
+  snareGain.gain.value = this.value
+})
+document.querySelector(".volhihat").addEventListener("input", function () {
+  console.log(this.value)
+  hiHatGain.gain.value = this.value
+})
+document.querySelector(".volohat").addEventListener("input", function () {
+  console.log(this.value)
+  openhatGain.gain.value = this.value
+})
+document.querySelector(".volcymbal").addEventListener("input", function () {
+  console.log(this.value)
+  cymbalGain.gain.value = this.value
+})
+document.querySelector(".volsfx").addEventListener("input", function () {
+  console.log(this.value)
+  sfxGain.gain.value = this.value
+})
+
+
 document.addEventListener('keydown', function (e) {
   if (e.keyCode === 68) {
-    kick.currentTime = 0;
     kick.play();
   }
   if (e.keyCode === 70) {

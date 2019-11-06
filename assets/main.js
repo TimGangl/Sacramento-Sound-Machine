@@ -115,7 +115,6 @@ function makeInterval(bpm) {
             };
 
         });
-
         tickCount += 1;
     }, timer);
     return intervalid;
