@@ -20,7 +20,7 @@ for (let ii = 0; ii < instruments.length; ii++) {
 
     let row = document.createElement("div");
     row.classList.add("row" + ii);
-
+    console.log(row)
     document.querySelector("#sequencer").append(row);
     if (ii % 2 == 0) {    //b classes are used in style.css
         bclass = "b0"
@@ -120,12 +120,11 @@ function makeInterval(bpm) {
     return intervalid;
 }
 
-var queryURL = "https://api.kanye.rest";
+var queryURL = "https://api.kanye.rest/?format=text";
 $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function (response) {
-    $(".kanye-rest").text(
-        "<b>" + response + "</b>"
-    );
+    $(".kanye-rest").text(response);
+    console.log(response)
 });
