@@ -6,6 +6,7 @@ var loop5 = new Audio("./assets/sounds/loops/ambient_GyEGvNBO.mp3");
 var loop6 = new Audio("./assets/sounds/loops/rock-guitar_GyMxpNr_.mp3");
 var loop7 = new Audio("./assets/sounds/loops/g-minor-screeching-violin-pattern-108-bpm_zkhnORNu.mp3");
 var loop8 = new Audio("./assets/sounds/loops/e-minor-ethnic-hip-hop-string-pattern-120-bpm_MJOBE0N_.mp3");
+
 var kick
 var clap
 var snare
@@ -14,9 +15,13 @@ var openHat
 var cymbal
 var sfx
 
+let isFirstClick = true;
+
+let kickGain;
+
 loadKit(1);
 function loadKit(drumkit) {
-
+  //loads the drumkit to be used 
   if (drumkit > 3 || drumkit < 1) {
     console.log("loadKit function given invalid parameters")
   }
@@ -31,7 +36,93 @@ function loadKit(drumkit) {
   }
 }
 
+$(".button8").on("click", function () { loadKit(1) });
+$(".button9").on("click", function () { loadKit(2) });
+$(".button10").on("click", function () { loadKit(3) });
+
+if (!isFirstClick) {
+  initAudiocontext();
+}
+
+
+
+document.addEventListener("click", function () {
+  if (isFirstClick) {
+    isFirstClick = false;
+    console.log("first click");
+    initAudiocontext();
+  }
+})
+
+function initAudiocontext() {
+  audioContext = new AudioContext();
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+  const wKick = audioContext.createMediaElementSource(kick);
+  kickGain = audioContext.createGain();
+  wKick.connect(kickGain).connect(audioContext.destination);
+
+  const wClap = audioContext.createMediaElementSource(clap);
+  clapGain = audioContext.createGain();
+  wClap.connect(clapGain).connect(audioContext.destination);
+
+  const wSnare = audioContext.createMediaElementSource(snare);
+  snareGain = audioContext.createGain();
+  wSnare.connect(snareGain).connect(audioContext.destination);
+
+  const wHihat = audioContext.createMediaElementSource(hiHat);
+  hiHatGain = audioContext.createGain();
+  wHihat.connect(hiHatGain).connect(audioContext.destination);
+
+  const wOpenhat = audioContext.createMediaElementSource(openHat);
+  openhatGain = audioContext.createGain();
+  wOpenhat.connect(openhatGain).connect(audioContext.destination);
+
+  const wCymbal = audioContext.createMediaElementSource(cymbal);
+  cymbalGain = audioContext.createGain();
+  wCymbal.connect(cymbalGain).connect(audioContext.destination);
+
+  const wSfx = audioContext.createMediaElementSource(sfx);
+  sfxGain = audioContext.createGain();
+  wSfx.connect(sfxGain).connect(audioContext.destination);
+}
+
+document.querySelector(".volkick").addEventListener("input", function () {
+  console.log(this.value)
+  kickGain.gain.value = this.value
+})
+document.querySelector(".volclap").addEventListener("input", function () {
+  console.log(this.value)
+  clapGain.gain.value = this.value
+})
+document.querySelector(".volsnare").addEventListener("input", function () {
+  console.log(this.value)
+  snareGain.gain.value = this.value
+})
+document.querySelector(".volhihat").addEventListener("input", function () {
+  console.log(this.value)
+  hiHatGain.gain.value = this.value
+})
+document.querySelector(".volohat").addEventListener("input", function () {
+  console.log(this.value)
+  openhatGain.gain.value = this.value
+})
+document.querySelector(".volcymbal").addEventListener("input", function () {
+  console.log(this.value)
+  cymbalGain.gain.value = this.value
+})
+document.querySelector(".volsfx").addEventListener("input", function () {
+  console.log(this.value)
+  sfxGain.gain.value = this.value
+})
+
+
 document.addEventListener('keydown', function (e) {
+  if (isFirstClick) {
+    initAudiocontext();
+    isFirstClick = false;
+  }
   if (e.keyCode === 68) {
     kick.currentTime = 0;
     kick.play();

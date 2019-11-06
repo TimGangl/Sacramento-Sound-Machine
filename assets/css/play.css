@@ -10,9 +10,52 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 14px;
-  width: 100px;
+  width: fit-content;
   opacity: 72%;
   font-family: 'Sedgwick Ave Display', cursive;
+  position: relative;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  
+  
+}
+.button:after {
+  content: "";
+  background: rgb(115, 0, 247);
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.buttons{
+  width: 258px;
+  background-color: rgb(199, 88, 93); 
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 14px;
+  opacity: 72%;
+  font-family: 'Sedgwick Ave Display', cursive;
+  border: 3px solid white;
+  color: black;
   
 }
 
