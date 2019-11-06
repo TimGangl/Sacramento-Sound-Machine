@@ -25,10 +25,16 @@ function loadKit(drumkit) {
     cymbal = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
     sfx = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
   }
-  if (!isFirstClick) {
-    initAudiocontext();
-  }
 }
+
+$(".button8").on("click", function () { loadKit(1) });
+$(".button9").on("click", function () { loadKit(2) });
+$(".button10").on("click", function () { loadKit(3) });
+
+if (!isFirstClick) {
+  initAudiocontext();
+}
+
 
 
 document.addEventListener("click", function () {
@@ -104,12 +110,12 @@ document.querySelector(".volsfx").addEventListener("input", function () {
 
 
 document.addEventListener('keydown', function (e) {
-  if(isFirstClick){
+  if (isFirstClick) {
     initAudiocontext();
     isFirstClick = false;
   }
   if (e.keyCode === 68) {
-    kick.currentTime=0;
+    kick.currentTime = 0;
     kick.play();
   }
   if (e.keyCode === 70) {
