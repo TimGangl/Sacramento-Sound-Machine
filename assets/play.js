@@ -71,18 +71,35 @@ $(".button7").on("click", function () {
 });
 
 $(".dropdown-item-1").on("click", function () {
+  // loop2.pause() = true;
+  // loop3.pause() = true;
+  // loop4.pause() = true;
   loop1.currentTime = 0;
+  loop1.loop = true;
   loop1.play();
 });
 $(".dropdown-item-2").on("click", function () {
+  // loop1.stop = true;
+  // loop3.stop = true;
+  // loop4.stop = true;
   loop2.currentTime = 0;
+  loop2.loop = true;
   loop2.play();
 });
 $(".dropdown-item-3").on("click", function () {
+  // loop1.stop = true;
+  // loop2.stop = true;
+  // loop4.stop = true;
   loop3.currentTime = 0;
+  loop3.loop = true;
   loop3.play();
 });
 $(".dropdown-item-4").on("click", function () {
+  // loop1.stop = true;
+  // loop2.stop = true;
+  // loop3.stop = true;
   loop4.currentTime = 0;
+  loop4.loop = true;
   loop4.play();
-})
+});
+
