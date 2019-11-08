@@ -9,6 +9,12 @@ var sfx
 let isFirstClick = true;
 
 let kickGain;
+let clapGain;
+let snareGain;
+let hiHatGain;
+let openhatGain;
+let cymbalGain;
+let sfxGain;
 
 loadKit(1);
 function loadKit(drumkit) {
