@@ -31,6 +31,7 @@ function loadKit(drumkit) {
     cymbal = new Audio(`./assets/sounds/drums/${drumkit}/cymbal.wav`);
     sfx = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
   }
+  initAudiocontext();
 }
 
 $(".button8").on("click", function () { loadKit(1) });
