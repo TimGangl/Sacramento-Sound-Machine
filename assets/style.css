@@ -5,7 +5,9 @@ button{
     width: 3em;
     height: 3em;
     text-align: center;
+    user-select: none;
 }
+
 button:focus{
     outline: none;
 }
@@ -23,6 +25,12 @@ button:focus{
     background : white;
 }
 
+input{
+    border-radius: 20px;
+    border:solid hsl(240, 100%, 75%);
+    margin: 5px 0px;
+    padding-left: 5px;
+}
 h1{
   font-family: 'Sedgwick Ave Display', cursive;
   font-size: 55px;

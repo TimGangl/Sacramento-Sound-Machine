@@ -57,20 +57,34 @@
     <!--drum sequencer-->
 
     <div class="card col-sm-2 " style="width: 9rem;">
-      <div class="card-body">
+      <div class="card-body tempocard">
         <h5 class="card-title">Tempo: <span id="showtempo"></span></h5>
         <input class="range" type="range" min="80" max="200" value="120" width="100px" id="tempo"></input>
         <button id="resetgrid" style="width:fit-content" class="btn btn-primary">reset</button>
+
+        <div id="savecontainer"></div>
+        <button id="saveprompt" style="width:fit-content" class="btn btn-primary">save</button>
+        <div style="background-color: rgb(92, 162, 243); border-radius: 20px; padding:10px">
+          Drum kits: 
+          <br>
+          <button class="kit" data-kit=1 >1</button>
+          <button class="kit" data-kit=2 >2</button>
+          <button class="kit" data-kit=3 >3</button>
+        </div>
+
       </div>
     </div>
-    <div class="col-sm-10" id="sequencer">
+    <div class="col-sm-10 content-justify-center" id="sequencer">
+    </div>
+    <div class="col-sm-12" id="loadloops">
 
     </div>
   </div>
 
 
 
-
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -82,5 +96,6 @@
     crossorigin="anonymous"></script>
   <script src="assets\main.js"></script>
 </body>
+
 
 </html>

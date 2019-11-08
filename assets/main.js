@@ -1,13 +1,83 @@
+
+var firebaseConfig = {
+    apiKey: "AIzaSyD_JecRbUtH_dQrNjrkNTAXp53vEJUH9qg",
+    authDomain: "sacramento-sound-machine.firebaseapp.com",
+    databaseURL: "https://sacramento-sound-machine.firebaseio.com",
+    projectId: "sacramento-sound-machine",
+    storageBucket: "sacramento-sound-machine.appspot.com",
+    messagingSenderId: "830321232990",
+    appId: "1:830321232990:web:9fdc5af74b24a6d80b78cf"
+};
+let data;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+function OnPageLoad() {
+
+    database.ref("/sequences").once("value", function (snapshot) {
+        console.log("save", snapshot.val())
+        data = snapshot.val();
+        for (i in data) {
+            let elm = document.createElement("div");
+            elm.innerHTML = `
+             ${data[i].Title}  by: ${data[i].Author} | <button style="border-radius: 0px; width:fit-content; height: 30px;" id="loadthisloop">Load This Loop</button>
+            `
+            elm.setAttribute("data-id", i);
+            console.log("data", i)
+            elm.style = `background-color : lightblue; padding-left:10px;`
+            document.querySelector("#loadloops").append(elm)
+        }
+    })
+}
+document.addEventListener("click", function (e) {
+    if (e.target.id === "loadthisloop") {
+        console.log(loadGrid(e.target.parentElement.getAttribute("data-id")))
+    }
+})
+OnPageLoad()
+
+function loadGrid(dataid) {
+    //remove all old active beats
+    Array.from(document.getElementsByClassName("isActive")).forEach(element => {
+        element.classList.remove("isActive")
+    })
+
+    if (data[dataid].BPM) {
+        setBpm(data[dataid].BPM);
+        console.log("set to loops original bpm of " + data[dataid].BPM)
+    }
+    console.log(data[dataid].Grid)
+    sequencer = data[dataid].Grid;
+    for (let j in data[dataid].Grid) {
+        console.log(j, data[dataid].Grid[j])
+        for (let jj in data[dataid].Grid[j]) {
+            let isActive = data[dataid].Grid[j][jj]; //j is row, jj is column
+            if (isActive == 1) {
+                document.querySelector(".row" + j).getElementsByClassName("button" + jj)[0].classList.add("isActive")
+
+            }
+            console.log(data[dataid].Grid[j][jj])
+        }
+    }
+}
+
+
 let interval;
 
-instruments = [
-    new Audio("assets/sounds/drums/1/clap.wav"),
-    new Audio("assets/sounds/drums/1/kick.wav"),
-    new Audio("assets/sounds/drums/1/snare.wav"),
-    new Audio("assets/sounds/drums/1/hihat.wav"),
-    new Audio("assets/sounds/drums/1/openhat.wav"),
-    new Audio("assets/sounds/drums/1/sfx.wav"),
-];
+loadkit(1)
+function loadkit(drumkit) {
+    instruments = [
+        new Audio(`assets/sounds/drums/${drumkit}/clap.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/kick.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/snare.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/hihat.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/openhat.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/cymbal.wav`),
+        new Audio(`assets/sounds/drums/${drumkit}/sfx.wav`),
+    ];
+}
+
 
 
 sequencer = [];
@@ -20,7 +90,6 @@ for (let ii = 0; ii < instruments.length; ii++) {
 
     let row = document.createElement("div");
     row.classList.add("row" + ii);
-    console.log(row)
     document.querySelector("#sequencer").append(row);
     if (ii % 2 == 0) {    //b classes are used in style.css
         bclass = "b0"
@@ -74,12 +143,50 @@ Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
 
     })
 });
+let firstSaveHappened = false;
+
+Array.from(document.getElementsByClassName("kit")).forEach(element => {
+    
+    element.addEventListener("click", function () {
+        loadkit(this.getAttribute("data-kit"))
+        console.log(element.style.width)
+        Array.from(document.getElementsByClassName("kit")).forEach(element => {element.style.width = "48px"});
+        element.style.width = "55px"
+    })
+})
+document.querySelector("#saveprompt").addEventListener("click", function () {
+    if (!firstSaveHappened) {
+        document.querySelector("#savecontainer").innerHTML = `
+        <input id="inputtitle" type="text" placeholder="Title">
+        <input id="inputname" type="text" placeholder="Your Name">
+        `
+        this.style = "background-color: blue; width:100px; "
+        firstSaveHappened = true;
+    }
+    else {
+        //stuff to save to firebase
+        console.log(sequencer);
+        let sequence = {
+            Author: document.querySelector("#inputname").value,
+            Title: document.querySelector("#inputtitle").value.trim(),
+            Grid: sequencer,
+            BPM: getBpm()
+        }
+        if (sequence.Author.length && sequence.Title.length) {
+            database.ref("/sequences").push(sequence);
+            document.querySelector("#savecontainer").innerHTML = "";
+            this.style = "width:inherit;"
+            firstSaveHappened = false;
+        }
+
+
+    }
+});
+
+
 
 document.querySelector("#tempo").oninput = function () {
-    console.log(this.value)
-    clearInterval(interval)
-    interval = makeInterval(this.value)
-    document.querySelector("#showtempo").textContent = this.value;
+    setBpm(this.value)
 }
 document.querySelector("#resetgrid").addEventListener("click", function () {
     Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
@@ -117,4 +224,13 @@ function makeInterval(bpm) {
         tickCount += 1;
     }, timer);
     return intervalid;
+}
+function getBpm() {
+    let bpm = 60000 / timer;
+    return bpm
+}
+function setBpm(newbpm) {
+    clearInterval(interval);
+    interval = makeInterval(newbpm);
+    document.querySelector("#showtempo").textContent = newbpm;
 }

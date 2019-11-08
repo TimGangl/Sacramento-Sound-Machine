@@ -27,7 +27,7 @@ $(".add").on("click", function (event) {
       userEmail: email,
       userMessage: message
     };
-    database.ref().push(contactInfo);
+    database.ref("/feedback").push(contactInfo);
 
     $(".name").val("");
     $(".email").val("");
