@@ -20,7 +20,7 @@ for (let ii = 0; ii < instruments.length; ii++) {
 
     let row = document.createElement("div");
     row.classList.add("row" + ii);
-
+    console.log(row)
     document.querySelector("#sequencer").append(row);
     if (ii % 2 == 0) {    //b classes are used in style.css
         bclass = "b0"
@@ -84,7 +84,6 @@ document.querySelector("#tempo").oninput = function () {
 document.querySelector("#resetgrid").addEventListener("click", function () {
     Array.from(document.getElementsByClassName("isButton")).forEach(elm => {
         elm.classList.remove("isActive")
-
     })
 });
 
@@ -110,11 +109,11 @@ function makeInterval(bpm) {
             }, timer);
 
             if (element.classList.contains("isActive")) {
+                instruments[element.getAttribute("row")].currentTime = 0;
                 instruments[element.getAttribute("row")].play();
             };
 
         });
-
         tickCount += 1;
     }, timer);
     return intervalid;

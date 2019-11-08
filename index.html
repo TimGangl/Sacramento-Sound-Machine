@@ -9,7 +9,8 @@
   <title>Sacramento Sound Machine</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+  <link rel="stylesheet" type="text/css" href="./assets/css/play.css">
+  <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 
 <body style="background: url(assets/images/sound-wave3.jpg)">
   <div class="container-fluid p-0">
@@ -50,13 +51,13 @@
     <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-4"><a class="nav-link" href="live.html"><img src="./assets/images/drum-kit4.jpg"
-            class="img-fluid rounded p-10 m-10" alt="drum kit">
-          <h4 style="color: antiquewhite;padding: 5px;">Drum Pad</h4>
+            style="opacity: 70%;" class="img-fluid rounded p-10 m-10" alt="drum kit">
+          <h4 style="color: antiquewhite;padding: 5px;"><strong>Drum Pad</strong></h4>
         </a>
       </div>
       <div class="col-sm-4"><a class="nav-link" href="sequencer.html"><img src="./assets/images/sequencer4.jpg"
-            class="img-fluid rounded p-10 m-10" alt="sequencer">
-          <h4 style="color: antiquewhite;padding: 5px;">Drum Sequencer</h4>
+            style="opacity: 70%;" class="img-fluid rounded p-10 m-10" alt="sequencer">
+          <h4 style="color: antiquewhite;padding: 5px;"><strong>Drum Sequencer</strong></h4>
         </a>
       </div>
       <div class="col-sm-2"></div>
@@ -66,12 +67,18 @@
   <div class="container-fluid">
     <div class="row text-center">
       <div class="col-sm-12">
-        <h3 style="color: aliceblue;">Random Kanye Quotes</h3>
+        <h2 style="color: aliceblue;">Random Kanye Quotes</h2>
+        <div style="color: aliceblue;" id="kanye"></div>
+        <br>
+        <div><img src="./assets/images/giphy.gif" width="20%" height="20%" style="opacity: 50%"></div>
+        <br>
+        <br>
 
       </div>
     </div>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/ajax.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -81,6 +88,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+  <script src="assets/main.js"></script>
 </body>
 
 </html>
