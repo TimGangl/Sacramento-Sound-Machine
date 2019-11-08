@@ -19,25 +19,7 @@
   
   
 }
-/* .button:after {
-  content: "";
-  background: rgb(115, 0, 247);
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
 
-.button:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-} */
 
 .buttons{
   width: 258px;
@@ -58,7 +40,26 @@
   color: black;
   
 }
+.buttons {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(6, 26, 143);
+}
 
+.buttons:hover {background-color: #00c5f7}
+
+.buttons:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+}
 h1{
   font-family: 'Sedgwick Ave Display', cursive;
   font-size: 55px;
