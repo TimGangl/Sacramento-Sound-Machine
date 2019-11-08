@@ -49,14 +49,14 @@
   color: #fff;
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px rgb(6, 26, 143);
+  box-shadow: 0 9px rgb(26, 48, 172);
 }
 
 .buttons:hover {background-color: #00c5f7}
 
 .buttons:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+  background-color: #42dee9;
+  box-shadow: 0 5px rgb(43, 38, 38);
   transform: translateY(4px);
 
 }
