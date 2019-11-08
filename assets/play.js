@@ -186,46 +186,118 @@ $(".button7").on("click", function () {
 $(".dropdown-item-1").on("click", function () {
   loop1.currentTime = 0;
   loop1.loop = true;
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop1.play();
 });
 $(".dropdown-item-2").on("click", function () {
   loop2.currentTime = 0;
   loop2.loop = true;
+  loop1.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop2.play();
 });
 $(".dropdown-item-3").on("click", function () {
   loop3.currentTime = 0;
   loop3.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop3.play();
 });
 $(".dropdown-item-4").on("click", function () {
   loop4.currentTime = 0;
   loop4.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop4.play();
 });
 $(".dropdown-item-5").on("click", function () {
   loop5.currentTime = 0;
   loop5.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop5.play();
 });
 $(".dropdown-item-6").on("click", function () {
   loop6.currentTime = 0;
   loop6.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop7.pause();
+  loop8.pause();
+  loop9.pause();
   loop6.play();
 });
 $(".dropdown-item-7").on("click", function () {
   loop7.currentTime = 0;
   loop7.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop8.pause();
+  loop9.pause();
   loop7.play();
 });
 $(".dropdown-item-8").on("click", function () {
   loop8.currentTime = 0;
   loop8.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop9.pause();
   loop8.play();
 });
 
 $(".dropdown-item-9").on("click", function () {
   loop9.currentTime = 0;
   loop9.loop = true;
+  loop1.pause();
+  loop2.pause();
+  loop3.pause();
+  loop4.pause();
+  loop5.pause();
+  loop6.pause();
+  loop7.pause();
+  loop8.pause();
   loop9.play();
 })
