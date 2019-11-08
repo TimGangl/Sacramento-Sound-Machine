@@ -1,11 +1,12 @@
-var loop1 = new Audio("./assets/sounds/loops/a-minor-cool-hip-hop-harp-loop-126-bpm_zJ_WsaNd.mp3");
-var loop2 = new Audio("./assets/sounds/loops/bass_GJen-EHu.mp3");
-var loop3 = new Audio("./assets/sounds/loops/d-minor-classic-hip-hop-piano-loop-185-bpm_z1ydWAN_.mp3");
-var loop4 = new Audio("./assets/sounds/loops/rock-guitar_GkHInVr_.mp3");
-var loop5 = new Audio("./assets/sounds/loops/ambient_GyEGvNBO.mp3");
-var loop6 = new Audio("./assets/sounds/loops/rock-guitar_GyMxpNr_.mp3");
-var loop7 = new Audio("./assets/sounds/loops/g-minor-screeching-violin-pattern-108-bpm_zkhnORNu.mp3");
-var loop8 = new Audio("./assets/sounds/loops/e-minor-ethnic-hip-hop-string-pattern-120-bpm_MJOBE0N_.mp3");
+var loop1 = new Audio(`./assets/sounds/loops/ambient_GyEGvNBO.mp3`);
+var loop2 = new Audio(`./assets/sounds/loops/a-minor-cool-hip-hop-harp-loop-126-bpm_zJ_WsaNd.mp3`);
+var loop3 = new Audio(`./assets/sounds/loops/bass_GJen-EHu.mp3`);
+var loop4 = new Audio(`./assets/sounds/loops/d-minor-classic-hip-hop-piano-loop-185-bpm_z1ydWAN_.mp3`);
+var loop5 = new Audio(`./assets/sounds/loops/e-minor-ethnic-hip-hop-string-pattern-120-bpm_MJOBE0N_.mp3`);
+var loop6 = new Audio(`./assets/sounds/loops/g-major-big-happy-pop-piano-loop-115-bpm_zJSNDANd.mp3`);
+var loop7 = new Audio(`./assets/sounds/loops/g-minor-screeching-violin-pattern-108-bpm_zkhnORNu.mp3`);
+var loop8 = new Audio(`./assets/sounds/loops/rock-guitar_GkHInVr_.mp3`);
+var loop9 = new Audio(`./assets/sounds/loops/rock-guitar_GyMxpNr_.mp3`);
 
 var kick
 var clap
@@ -188,25 +189,16 @@ $(".dropdown-item-1").on("click", function () {
   loop1.play();
 });
 $(".dropdown-item-2").on("click", function () {
-  // loop1.stop = true;
-  // loop3.stop = true;
-  // loop4.stop = true;
   loop2.currentTime = 0;
   loop2.loop = true;
   loop2.play();
 });
 $(".dropdown-item-3").on("click", function () {
-  // loop1.stop = true;
-  // loop2.stop = true;
-  // loop4.stop = true;
   loop3.currentTime = 0;
   loop3.loop = true;
   loop3.play();
 });
 $(".dropdown-item-4").on("click", function () {
-  // loop1.stop = true;
-  // loop2.stop = true;
-  // loop3.stop = true;
   loop4.currentTime = 0;
   loop4.loop = true;
   loop4.play();
@@ -231,3 +223,9 @@ $(".dropdown-item-8").on("click", function () {
   loop8.loop = true;
   loop8.play();
 });
+
+$(".dropdown-item-9").on("click", function () {
+  loop9.currentTime = 0;
+  loop9.loop = true;
+  loop9.play();
+})
