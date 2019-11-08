@@ -42,15 +42,21 @@ function loadKit(drumkit) {
     sfx = new Audio(`./assets/sounds/drums/${drumkit}/sfx.wav`);
   }
   initAudiocontext();
+
+  console.log(document.getElementsByTagName("input"))
+  Array.from(document.getElementsByTagName("input")).forEach(element => {
+    if(element.type == "range"){
+      console.log(element.classList)
+      element.value = 1.5;
+    }
+  });
 }
 
 $(".button8").on("click", function () { loadKit(1) });
 $(".button9").on("click", function () { loadKit(2) });
 $(".button10").on("click", function () { loadKit(3) });
 
-if (!isFirstClick) {
-  initAudiocontext();
-}
+
 
 
 
