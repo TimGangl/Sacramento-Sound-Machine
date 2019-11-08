@@ -109,7 +109,9 @@ h1{
 #kanye{
   font-size: 20px;
 }
-
+body{
+  user-select: none;
+}
 
 
 
