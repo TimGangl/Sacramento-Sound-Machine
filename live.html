@@ -47,78 +47,83 @@
   <!--heading and instructions-->
   <div class="container-fluid text-center">
     <h1 style="color: antiquewhite; padding: 10px;">Drum Pad</h1>
-    <h5 style="color: antiquewhite;">Click a track to select a music loop.</h5>
-    <h5 style="color: antiquewhite;">Start music loop by pressing play.</h5>
+    <!--<h5 style="color: antiquewhite;">Click a track to select a music loop.</h5>-->
+    <h5 style="color: antiquewhite;">Start the music loop by clicking on the track name.</h5>
     <h5 style="color: antiquewhite;">Then press corresponding letter keys to
       play the drums. </h5>
   </div>
   <!--drum container-->
   <div class="row">
     <!--loop player-->
-    <div class="col-sm-3"></div>
-    <!--drum pad-->
-    <div class="col-sm-9">
-      <br>
-      <div class="drumPads">
-        <div data-key="68" class="button button1">
-          <h2>D</h2>
-          <p>KICK</p>
-          <input class="volkick" type="range" min=0 max=3 step=0.1 style="width:60px">
-        </div>
-        <div data-key="70" class="button button2">
-          <h2>F</h2>
-          <p>CLAP</p>
-          <input class="volclap" type="range" min=0 max=3 step=0.1 style="width:60px">
-
-        </div>
-        <div data-key="71" class="button button3">
-          <h2>G</h2>
-          <p>SNARE</p>
-          <input class="volsnare" type="range" min=0 max=3 step=0.1 style="width:60px">
-
-        </div>
-        <div data-key="72" class="button button4">
-          <h2>H</h2>
-          <p>HI-HAT</p>
-          <input class="volhihat" type="range" min=0 max=3 step=0.1 style="width:60px">
-
-        </div>
-        <div data-key="74" class="button button5">
-          <h2>J</h2>
-          <p>O-HAT</p>
-          <input class="volohat" type="range" min=0 max=3 step=0.1 style="width:60px">
-
-        </div>
-        <div data-key="75" class="button button6">
-          <h2>K</h2>
-          <p>CYMBAL</p>
-          <input class="volcymbal" type="range" min=0 max=3 step=0.1 style="width:60px">
-
-        </div>
-        <div data-key="76" class="button button7">
-          <h2>L</h2>
-          <p>SFX</p>
-          <input class="volsfx" type="range" min=0 max=3 step=0.1 style="width:60px">
-
+    <div class="col-sm-12 text-center">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Select Your Music!
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-item-1">Loop #1</div>
+          <div class="dropdown-item-2">Loop #2</div>
+          <div class="dropdown-item-3">Loop #3</div>
+          <div class="dropdown-item-4">Loop #4</div>
+          <div class="dropdown-item-5">Loop #5</div>
+          <div class="dropdown-item-6">Loop #6</div>
+          <div class="dropdown-item-7">Loop #7</div>
+          <div class="dropdown-item-8">Loop #8</div>
+          <div class="dropdown-item-9">Loop #9</div>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <br>
+  <!--drum pad-->
   <div class="row">
     <div class="col-sm-3"></div>
-    <div class="buttons button8">
-      <h2>drum-Kit 1</h2>
-    </div>
-    <div class="buttons button9">
-      <h2>drum-Kit 2</h2>
-    </div>
-    <div class="buttons button10">
-      <h2>drum-Kit 3</h2>
+    <div class="drumPads">
+      <div data-key="68" class="button button1">
+        <h2>D</h2>
+        <p>KICK</p>
+        <input class="volkick" type="range" min=0 max=3 step=0.1 style="width:60px">
+      </div>
+      <div data-key="70" class="button button2">
+        <h2>F</h2>
+        <p>CLAP</p>
+        <input class="volclap" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+      </div>
+      <div data-key="71" class="button button3">
+        <h2>G</h2>
+        <p>SNARE</p>
+        <input class="volsnare" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+      </div>
+      <div data-key="72" class="button button4">
+        <h2>H</h2>
+        <p>HI-HAT</p>
+        <input class="volhihat" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+      </div>
+      <div data-key="74" class="button button5">
+        <h2>J</h2>
+        <p>O-HAT</p>
+        <input class="volohat" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+      </div>
+      <div data-key="75" class="button button6">
+        <h2>K</h2>
+        <p>CYMBAL</p>
+        <input class="volcymbal" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+      </div>
+      <div data-key="76" class="button button7">
+        <h2>L</h2>
+        <p>SFX</p>
+        <input class="volsfx" type="range" min=0 max=3 step=0.1 style="width:60px">
+
+
+      </div>
     </div>
   </div>
-
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
