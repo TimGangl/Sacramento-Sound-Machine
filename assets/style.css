@@ -13,6 +13,7 @@ button:focus{
 }
 .isActive{
     border:solid red;
+    border-width: 5px;
 }
 .b0{
     background: slateblue;

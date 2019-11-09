@@ -47,6 +47,10 @@ function loadGrid(dataid) {
         setBpm(data[dataid].BPM);
         console.log("set to loops original bpm of " + data[dataid].BPM)
     }
+    if (kit = data[dataid].Kit){
+        loadkit(data[dataid].Kit);
+    }
+
     console.log(data[dataid].Grid)
     sequencer = data[dataid].Grid;
     for (let j in data[dataid].Grid) {
@@ -64,7 +68,7 @@ function loadGrid(dataid) {
 
 
 let interval;
-
+let LoadedKit;
 loadkit(1)
 function loadkit(drumkit) {
     instruments = [
@@ -76,6 +80,16 @@ function loadkit(drumkit) {
         new Audio(`assets/sounds/drums/${drumkit}/cymbal.wav`),
         new Audio(`assets/sounds/drums/${drumkit}/sfx.wav`),
     ];
+    Array.from(document.getElementsByClassName("kit")).forEach(element => {
+        if(element.getAttribute("data-kit") == drumkit){
+            element.style = "border-color:red; width:52px;"
+        }
+        else{
+            element.style = "border-color:white; width:48px;"
+        }
+    });
+    LoadedKit = drumkit;
+
 }
 
 
@@ -150,8 +164,7 @@ Array.from(document.getElementsByClassName("kit")).forEach(element => {
     element.addEventListener("click", function () {
         loadkit(this.getAttribute("data-kit"))
         console.log(element.style.width)
-        Array.from(document.getElementsByClassName("kit")).forEach(element => {element.style.width = "48px"});
-        element.style.width = "55px"
+
     })
 })
 document.querySelector("#saveprompt").addEventListener("click", function () {
@@ -170,7 +183,8 @@ document.querySelector("#saveprompt").addEventListener("click", function () {
             Author: document.querySelector("#inputname").value,
             Title: document.querySelector("#inputtitle").value.trim(),
             Grid: sequencer,
-            BPM: getBpm()
+            BPM: getBpm(),
+            Kit: LoadedKit
         }
         if (sequence.Author.length && sequence.Title.length) {
             database.ref("/sequences").push(sequence);
@@ -227,10 +241,12 @@ function makeInterval(bpm) {
 }
 function getBpm() {
     let bpm = 60000 / timer;
+    document.querySelector("#tempo") = bpm;
     return bpm
 }
 function setBpm(newbpm) {
     clearInterval(interval);
     interval = makeInterval(newbpm);
     document.querySelector("#showtempo").textContent = newbpm;
+    document.querySelector("#tempo").value = newbpm;
 }
