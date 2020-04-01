@@ -16,10 +16,10 @@ Fork Repo to to run locally with no other files to download, or just [click here
 * Firebase
 
 ### Authors
-Abhiroop Sohal
+[Abhiroop Sohal](https://github.com/Abbbbbbbbbbbhi)
 <br>
-Chase Tsutsui
+[Chase Tsutsui](https://github.com/chasetsutsui)
 <br>
-Paulo Camacho
+[Paulo Camacho](https://github.com/kingbrs49)
 <br>
-Tim Gangl
+[Tim Gangl](https://github.com/TimGangl)
