@@ -1,4 +1,6 @@
-# Sacramento Sound Machine Drum Pad/ Sequencer
+# Sacramento Sound Machine 
+ **Drum Pad/ Sequencer**
+ 
 This is a fun app intended for the musically inclined, non-musician and everyone in between. We have created a drum pad that you can pick one of eight music loops to drum along with. This is great to help come up with inspiration and ideas. The sequencer is great for the aspiring DJ or for someone who needs a drum track to play along with. On both featues users have the option of three different drum kits.
 
 ## Built with
