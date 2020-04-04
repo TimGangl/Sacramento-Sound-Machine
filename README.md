@@ -15,7 +15,7 @@ Fork Repo to to run locally with no other files to download, or just [click here
 * Random Kanye Quotes API 
 * Firebase
 
-### Authors
+## Authors
 [Abhiroop Sohal](https://github.com/Abbbbbbbbbbbhi)
 <br>
 [Chase Tsutsui](https://github.com/chasetsutsui)
